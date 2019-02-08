@@ -14,17 +14,15 @@ class Ingredient
   end
 
   def self.most_common_allergen
-    count = {}
+    counts = {}
 
     Allergen.all.each do |allergy|
-      # count[allergy.ingredient.name] ||= 0
-      if count[allergy.ingredient.name] == nil
-        count[allergy.ingredient.name] = 0
-      end
-
-      count[allergy.ingredient.name] += 1
+      counts[allergy.ingredient] ||= 0
+      counts[allergy.ingredient] += 1
     end
-    binding.pry
+
+    counts.max_by { |ing,count| count }.first
+    # binding.pry
   end
 
 end
