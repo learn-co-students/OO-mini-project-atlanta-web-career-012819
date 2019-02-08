@@ -41,6 +41,15 @@ class Recipe
   end
 
   def self.most_popular ## EXCELLENT, SMITHERS <><>
+    counts = {}
+
+    RecipeCard.all.each do |card|
+      counts[card.recipe] ||= 0
+      counts[card.recipe] += 1
+    end
+
+    counts.max_by { |r, count| count }.first
+    # binding.pry
   end
 
 end

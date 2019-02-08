@@ -12,9 +12,6 @@ class RecipeCard
     @@all << self # adds current RecipeCard to the list of all RecipeCards
   end
 
-  # def rating
-  # end
-
   # return array of all RecipeCard objects that have been created
   def self.all
     @@all

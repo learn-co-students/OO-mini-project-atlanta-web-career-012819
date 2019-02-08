@@ -41,6 +41,7 @@ class User
   end
 
   def most_recent_recipe
+    RecipeCard.all.select { |card| card.user == self }.sort_by { |card| card.date }.last.recipe
   end
 
   def self.all
